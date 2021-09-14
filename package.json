@@ -1,20 +1,20 @@
 {
-  "name": "mxstbr",
+  "name": "romanyanke",
   "version": "1.0.1",
-  "description": "Max Stoiber (@mxstbr)'s business card",
+  "description": "Roman Yanke (@romanyanke)'s business card",
   "main": "index.js",
   "bin": {
-    "mxstbr": "./bin/card.js"
+    "romanyanke": "./bin/card.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mxstbr/businesscard.git"
+    "url": "https://github.com/romanyanke/businesscard"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "keywords": [],
-  "author": "Max Stoiber",
+  "author": "Roman Yanke",
   "license": "MIT",
   "dependencies": {
     "boxen": "^5.1.1",
