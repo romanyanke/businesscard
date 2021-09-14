@@ -1,6 +1,6 @@
 {
   "name": "romanyanke",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Roman Yanke (@romanyanke)'s business card",
   "main": "index.js",
   "bin": {
