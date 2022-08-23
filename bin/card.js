@@ -1,46 +1,28 @@
 #!/usr/bin/env node
 // 👆 Used to tell Node.js that this is a CLI tool
 
-// Pull in our modules
 const chalk = require('chalk')
 const boxen = require('boxen')
+const AsciiTable = require('ascii-table')
 
 // Define options for Boxen
 const options = {
-  padding: 1,
-  margin: 1,
-  borderStyle: 'round'
+  padding: { top: 1, right: 10, bottom: 1, left: 8 },
+  margin: 2,
+  borderStyle: 'round',
+  float: 'center',
 }
 
-// Text + chalk definitions
-const data = {
-  name: chalk.white('Roman Yanke /'),
-  handle: chalk.cyan('romanyanke'),
-  work: chalk.white('Frontend Engineer at simplinic'),
-  twitter: chalk.cyan('twitter.com/romanyanke'),
-  github: chalk.cyan('github.com/romanyanke'),
-  linkedin: chalk.cyan('linkedin.com/in/romanyanke'),
-  web: chalk.cyan('yanke.ru'),
-  npx: chalk.white('npx romanyanke'),
-  labelWork: chalk.white.bold('      Work:'),
-  labelTwitter: chalk.white.bold('   Twitter:'),
-  labelGitHub: chalk.white.bold('    GitHub:'),
-  labelLinkedIn: chalk.white.bold('  LinkedIn:'),
-  labelWeb: chalk.white.bold('       Web:'),
-  labelCard: chalk.white.bold('      Card:')
-}
+var table = new AsciiTable().removeBorder()
+  .addRow()
+  .addRow(chalk.white.bold('Work'), chalk.white('Frontend Engineer'))
+  .addRow(chalk.white.bold('Twitter'), chalk.cyan('twitter.com/romanyanke'))
+  .addRow(chalk.white.bold('GitHub'), chalk.cyan('github.com/romanyanke'))
+  .addRow(chalk.white.bold('LinkedIn'), chalk.cyan('linkedin.com/in/romanyanke'))
+  .addRow(chalk.white.bold('Web'), chalk.cyan('yanke.world'))
+  .addRow()
+  .addRow(chalk.white.bold('Card'), chalk.white('npx romanyanke'),)
 
-// Actual strings we're going to output
-const newline = '\n'
-const heading = `${data.name} ${data.handle}`
-const working = `${data.labelWork}  ${data.work}`
-const twittering = `${data.labelTwitter}  ${data.twitter}`
-const githubing = `${data.labelGitHub}  ${data.github}`
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`
-const webing = `${data.labelWeb}  ${data.web}`
-const carding = `${data.labelCard}  ${data.npx}`
-
-// Put all our output together into a single variable so we can use boxen effectively
-const output = heading + newline + newline + working + newline + twittering + newline + githubing + newline + linkedining + newline + webing + newline + newline + carding
-
-console.log(chalk.green(boxen(output, options)))
+console.log(chalk.green(boxen(
+  chalk.white.bold('Roman Yanke') + " / " + chalk.cyan('romanyanke') + '\n'+
+  table.toString(), options)))
